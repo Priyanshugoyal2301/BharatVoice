@@ -3,21 +3,33 @@ from PIL import Image
 import io
 import os
 import re
+import shutil
 
-# Try to set Tesseract path for Windows
+# Try to set Tesseract path (works for Windows and Linux/Render)
 TESSERACT_PATHS = [
     r'C:\Program Files\Tesseract-OCR\tesseract.exe',
     r'C:\Program Files (x86)\Tesseract-OCR\tesseract.exe',
     r'C:\Users\{}\AppData\Local\Programs\Tesseract-OCR\tesseract.exe'.format(os.getenv('USERNAME', '')),
+    '/usr/bin/tesseract',  # Linux/Ubuntu/Render default path
+    '/usr/local/bin/tesseract',  # Alternative Linux path
 ]
 
 tesseract_found = False
-for path in TESSERACT_PATHS:
-    if os.path.exists(path):
-        pytesseract.pytesseract.tesseract_cmd = path
-        tesseract_found = True
-        print(f"✅ Tesseract found at: {path}")
-        break
+
+# First try to find tesseract using system PATH
+tesseract_path = shutil.which('tesseract')
+if tesseract_path:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
+    tesseract_found = True
+    print(f"✅ Tesseract found at: {tesseract_path}")
+else:
+    # If not in PATH, try predefined paths
+    for path in TESSERACT_PATHS:
+        if os.path.exists(path):
+            pytesseract.pytesseract.tesseract_cmd = path
+            tesseract_found = True
+            print(f"✅ Tesseract found at: {path}")
+            break
 
 if not tesseract_found:
     print("⚠️ Tesseract not found in standard locations!")
