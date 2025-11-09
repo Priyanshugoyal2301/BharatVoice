@@ -8,5 +8,3 @@ services:
         sync: false
       - key: AI_PROVIDER
         value: gemini
-      - key: PORT
-        value: "10000"

@@ -20,8 +20,8 @@ RUN pip install --no-cache-dir --upgrade pip && \
 # Copy backend code
 COPY backend/ .
 
-# Expose port (Render uses PORT environment variable)
-EXPOSE 10000
+# Expose port
+EXPOSE $PORT
 
-# Start command
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "10000"]
+# Start command with PORT environment variable
+CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-10000}
