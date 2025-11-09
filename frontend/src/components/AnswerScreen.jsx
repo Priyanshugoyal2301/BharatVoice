@@ -110,7 +110,7 @@ function AnswerScreen({ setStep, formData, setFormData, user }) {
       validateFormData.append("answer", answer);
 
       const validationResponse = await axios.post(
-        "https://bharatvoice1.onrender.com/validate-answer",
+        "https://bharatvoice-1.onrender.com/validate-answer",
         validateFormData
       );
 

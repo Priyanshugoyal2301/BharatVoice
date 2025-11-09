@@ -21,7 +21,7 @@ function ReviewScreen({ formData, user, setStep }) {
       console.log("Sending to backend:", data);
       
       const response = await axios.post(
-        "https://bharatvoice1.onrender.com/generate-filled-form",
+        "https://bharatvoice-1.onrender.com/generate-filled-form",
         data,
         { responseType: "blob" }
       );
