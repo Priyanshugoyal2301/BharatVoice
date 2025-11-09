@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+openai>=1.0.0
+pytesseract
+Pillow
+reportlab
+python-multipart
+python-dotenv
+google-generativeai
