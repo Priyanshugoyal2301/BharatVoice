@@ -30,7 +30,7 @@ function FormUploadScreen({ setStep, formData, setFormData, user }) {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/scan-form",
+        "https://bharatvoice1.onrender.com/scan-form",
         formDataObj,
         {
           headers: { "Content-Type": "multipart/form-data" },

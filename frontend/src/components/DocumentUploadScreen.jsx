@@ -37,7 +37,7 @@ function DocumentUploadScreen({ setStep, formData, setFormData, user }) {
 
     try {
       const response = await axios.post(
-        "http://127.0.0.1:8000/upload-document",
+        "https://bharatvoice1.onrender.com/upload-document",
         formDataObj
       );
 
