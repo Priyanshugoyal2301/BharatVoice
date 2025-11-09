@@ -12,6 +12,9 @@ BharatVoice AI helps users fill forms by voice or document scanning using AI.
 - 📋 PDF Generation
 - 👤 User Authentication & Profile Management
 - ♿ Accessibility Friendly Design
+  
+## Deployed link
+https://bharat-voice.vercel.app/
 
 ## Installation
 ### Backend
@@ -19,3 +22,4 @@ BharatVoice AI helps users fill forms by voice or document scanning using AI.
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload
+
